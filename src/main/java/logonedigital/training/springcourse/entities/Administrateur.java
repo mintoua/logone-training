@@ -15,6 +15,7 @@ import lombok.*;
 @Setter
 @Builder
 public class Administrateur extends AbstractEntity{
+
     @Column(name = "nom")
     private String nom;
 
