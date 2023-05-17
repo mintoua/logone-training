@@ -1,6 +1,6 @@
-package logonedigital.training.springcourse.repositories;
+package logonedigital.springcourse.repositories;
 
-import logonedigital.training.springcourse.entities.User;
+import logonedigital.springcourse.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

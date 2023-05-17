@@ -1,7 +1,6 @@
-package logonedigital.training.springcourse.dto;
+package logonedigital.springcourse.dtos;
 
-import logonedigital.training.springcourse.entities.Administrateur;
-import logonedigital.training.springcourse.entities.Enseignant;
+import logonedigital.springcourse.entities.Enseignant;
 import lombok.Builder;
 import lombok.Data;
 
@@ -41,6 +40,7 @@ public class EnseignantDto {
         }
 
         return Enseignant.builder()
+                .id(enseignantDto.getId())
                 .nom(enseignantDto.getNom())
                 .prenom(enseignantDto.getPrenom())
                 .adresse(enseignantDto.getAdresse())

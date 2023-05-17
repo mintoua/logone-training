@@ -1,7 +1,6 @@
-package logonedigital.training.springcourse.dto;
+package logonedigital.springcourse.dtos;
 
-import jakarta.persistence.Column;
-import logonedigital.training.springcourse.entities.User;
+import logonedigital.springcourse.entities.User;
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,7 +14,7 @@ public class UserDto {
     // TODO Put this attribut with @JsonIgnore
     private boolean enabled;
 
-    public UserDto fromEntity(User user){
+    public static UserDto fromEntity(User user){
 
         if(user == null){
             // TODO Throw an exception
@@ -31,7 +30,7 @@ public class UserDto {
     }
 
 
-    public User toEntity(UserDto userDto){
+    public static User toEntity(UserDto userDto){
 
         if(userDto == null){
             // TODO Throw an exception
@@ -39,6 +38,7 @@ public class UserDto {
         }
 
         return User.builder()
+                .id(userDto.getId())
                 .username(userDto.getUsername())
                 .email(userDto.getEmail())
                 .enabled(userDto.isEnabled())

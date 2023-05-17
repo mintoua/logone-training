@@ -1,13 +1,16 @@
-package logonedigital.training.springcourse.entities;
+package logonedigital.springcourse.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "users")
@@ -16,7 +19,21 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
-public class User extends AbstractEntity{
+public class User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @CreatedDate
+    @Column(name = "creationDate", nullable = false)
+    @JsonIgnore
+    private Instant creationDate;
+
+    @LastModifiedDate
+    @Column(name = "lastModifiedDate", nullable = false)
+    @JsonIgnore
+    private Instant lastModifiedDate;
 
     @Column(name = "username")
     private String username;

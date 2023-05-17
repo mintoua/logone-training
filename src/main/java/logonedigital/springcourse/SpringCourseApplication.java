@@ -1,4 +1,4 @@
-package logonedigital.training.springcourse;
+package logonedigital.springcourse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

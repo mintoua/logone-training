@@ -1,4 +1,4 @@
-package logonedigital.training.springcourse;
+package logonedigital.springcourse;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

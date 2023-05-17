@@ -1,7 +1,6 @@
-package logonedigital.training.springcourse.dto;
+package logonedigital.springcourse.dtos;
 
-import jakarta.persistence.Column;
-import logonedigital.training.springcourse.entities.Cours;
+import logonedigital.springcourse.entities.Cours;
 import lombok.Builder;
 import lombok.Data;
 
@@ -42,6 +41,7 @@ public class CoursDto {
         }
 
         return Cours.builder()
+                .id(coursDto.getId())
                 .nom(coursDto.getNom())
                 .description(coursDto.getDescription())
                 .dateDebut(coursDto.getDateDebut())

@@ -1,8 +1,6 @@
-package logonedigital.training.springcourse.dto;
+package logonedigital.springcourse.dtos;
 
-import jakarta.persistence.Column;
-import logonedigital.training.springcourse.entities.Administrateur;
-import logonedigital.training.springcourse.entities.User;
+import logonedigital.springcourse.entities.Administrateur;
 import lombok.Builder;
 import lombok.Data;
 
@@ -42,6 +40,7 @@ public class AdministrateurDto {
         }
 
         return Administrateur.builder()
+                .id(adminDto.getId())
                 .nom(adminDto.getNom())
                 .prenom(adminDto.getPrenom())
                 .adresse(adminDto.getAdresse())
