@@ -1,10 +1,12 @@
 package logonedigital.springcourse.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.AbstractAuditable;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "cours")
@@ -21,21 +24,11 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Cours implements Serializable {
+public class Cours extends AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @CreatedDate
-    @Column(name = "creationDate", nullable = false)
-    @JsonIgnore
-    private Instant creationDate;
-
-    @LastModifiedDate
-    @Column(name = "lastModifiedDate", nullable = false)
-    @JsonIgnore
-    private Instant lastModifiedDate;
 
     @Column(name = "nom")
     private String nom;

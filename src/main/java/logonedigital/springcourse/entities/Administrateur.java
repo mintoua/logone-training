@@ -18,21 +18,11 @@ import java.time.Instant;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Administrateur implements Serializable {
+public class Administrateur extends AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @CreatedDate
-    @Column(name = "creationDate", nullable = false)
-    @JsonIgnore
-    private Instant creationDate;
-
-    @LastModifiedDate
-    @Column(name = "lastModifiedDate", nullable = false)
-    @JsonIgnore
-    private Instant lastModifiedDate;
 
     @Column(name = "nom")
     private String nom;

@@ -20,21 +20,12 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Etudiant implements Serializable {
+public class Etudiant extends AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @CreatedDate
-    @Column(name = "creationDate", nullable = false)
-    @JsonIgnore
-    private Instant creationDate;
-
-    @LastModifiedDate
-    @Column(name = "lastModifiedDate", nullable = false)
-    @JsonIgnore
-    private Instant lastModifiedDate;
 
     @Column(name = "nom")
     private String nom;

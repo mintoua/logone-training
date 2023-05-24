@@ -19,11 +19,13 @@ public class UserServiceImpl implements IUserService {
 
     final UserRepository userRepository;
 
+
     @Override
     @Transactional
     public UserDto addUser(UserDto userDto) {
         // TODO Handling Exception Here before
-        return UserDto.fromEntity(UserDto.toEntity(userDto));
+        return UserDto.fromEntity(
+                userRepository.save(UserDto.toEntity(userDto)));
     }
 
     @Override
@@ -51,7 +53,9 @@ public class UserServiceImpl implements IUserService {
 
         // TODO Handling Exception Here before
 
-        User existingUser = userRepository.findById(user.getId()).get();
+        User existingUser = userRepository
+                .findById(user.getId())
+                .orElse(null);
         existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());
         User updatedUser = userRepository.save(existingUser);

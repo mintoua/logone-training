@@ -16,7 +16,7 @@ public class CoursDto {
     private LocalDate dateDebut;
     private LocalDate dateFin;
 
-    public CoursDto fromEntity(Cours cours){
+    public static CoursDto toDto(Cours cours){
 
         if (cours == null){
             // TODO Throw an exception
@@ -33,7 +33,7 @@ public class CoursDto {
     }
 
 
-    public Cours toEntity( CoursDto coursDto ){
+    public static Cours toEntity( CoursDto coursDto ){
 
         if (coursDto == null){
             // TODO Throw an exception

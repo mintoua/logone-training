@@ -20,21 +20,11 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
-public class Role implements Serializable {
+public class Role extends AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @CreatedDate
-    @Column(name = "creationDate", nullable = false)
-    @JsonIgnore
-    private Instant creationDate;
-
-    @LastModifiedDate
-    @Column(name = "lastModifiedDate", nullable = false)
-    @JsonIgnore
-    private Instant lastModifiedDate;
 
     @Column(name = "name")
     private String name;

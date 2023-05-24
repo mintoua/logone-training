@@ -18,12 +18,13 @@ public class UserController {
 
     // Build Add User REST API
     // http://localhost:8080/api/v1/users/add
-    @PostMapping("/add")
+    @PostMapping(value = "/add", consumes = "application/json")
     @ResponseBody
-    public ResponseEntity<UserDto> addUser(@RequestBody UserDto user){
+    public ResponseEntity<UserDto> addUser(@RequestBody UserDto user) {
         UserDto savedUser = userService.addUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
+
 
     // Build Get User REST API
     // http://localhost:8080/api/v1/users
